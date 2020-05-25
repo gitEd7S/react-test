@@ -1,0 +1,47 @@
+/* interlocutors */
+
+.interlocutors__title {
+    display: block;
+    width: 100%;
+    margin-bottom: 30px;
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.interlocutors__content {
+    padding-left: 15px;
+    list-style-type: none;
+}
+
+.interlocutors__item {
+    margin-bottom: 15px;
+}
+
+.interlocutors__link {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #9e9e9e;
+    text-decoration: none;
+    transition-duration: 0.3s;
+}
+
+.interlocutors__link--active {
+    color: #f9c855;
+}
+
+.interlocutors__link:after {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #d0d0d0;
+    margin-left: 15px;
+    transition-duration: 0.3s;
+}
+
+.interlocutors__link--online:after {
+    background-color: green;
+}

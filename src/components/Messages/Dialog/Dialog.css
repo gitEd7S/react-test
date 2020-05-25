@@ -1,0 +1,42 @@
+.dialog {
+    display: flex;
+    align-items: flex-start;
+}
+
+.dialog__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dialog__picture {
+    display: block;
+    width: 60px;
+    height: 60px;
+    padding: 5px;
+    border-radius: 50%;
+    border: 1px solid #eee;
+    overflow: hidden;
+}
+
+.dialog__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dialog__name {
+    display: block;
+    margin-top: 15px;
+}
+
+.dialog__body {
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    margin-left: 50px;
+}
+
+.dialog__message {
+    margin: 0;
+}

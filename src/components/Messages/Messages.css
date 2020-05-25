@@ -1,0 +1,11 @@
+.messages {
+    display: flex;
+    height: 100%;
+}
+
+.messages__interlocutors {
+    width: 25%;
+    padding-top: 15px;
+    padding-left: 15px;
+    border-right: 1px solid #eee;
+}

@@ -1,0 +1,29 @@
+/* Navbar */
+
+.navbar {
+    grid-area: navbar;
+    background-color: var(--color-view-navbar);
+}
+
+.navbar__list {
+    padding: 0 0 0 10px;
+    list-style-type: none;
+}
+
+.navbar__item {
+    margin-bottom: 10px;
+}
+
+.navbar__settings {
+    margin-top: 35px;
+}
+
+.navbar__link {
+    color: white;
+    text-decoration: none;
+    transition-duration: 0.3s;
+}
+
+.navbar__link--active {
+    color: #f9cb52;
+}

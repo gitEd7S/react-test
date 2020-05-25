@@ -1,0 +1,44 @@
+/* User */
+
+.user {
+    display: flex;
+}
+
+.user__picture {
+    display: block;
+    width: 180px;
+    height: 180px;
+}
+
+.user__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user__content {
+    width: calc(100% - 180px);
+    padding-left: 20px;
+}
+
+.user__name {
+    display: block;
+    font-size: 26px;
+    font-weight: 500;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.user__data {
+    padding: 0;
+    list-style-type: none;
+}
+
+.user__item {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.user__link {
+    text-decoration: none;
+}

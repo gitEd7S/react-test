@@ -13,14 +13,8 @@ const Profile = () => {
             <User />
             <CreatePost />
             <div className="main__posts">
-                <NewPost
-                    name="Hey, why nobody love me ??"
-                    like="2"
-                />
-                <NewPost
-                    name="How are you ??"
-                    like="5"
-                />
+                <NewPost name="Hey, why nobody love me ??" like="2" />
+                <NewPost name="How are you ??" like="5" />
             </div>
         </>
     );

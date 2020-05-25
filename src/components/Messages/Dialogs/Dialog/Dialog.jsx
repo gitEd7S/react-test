@@ -6,14 +6,13 @@ const Dialog = (props) => {
         <div className={`${props.class} dialog`}>
             <div className="dialog__header">
                 <picture className="dialog__picture">
-                    <img src="https://www.freepnglogos.com/uploads/smile-png/smile-index-images-24.png" alt="" className="dialog__image"/>
+                    <img src={props.picture} alt="" className="dialog__image"/>
                 </picture>
-                <span className="dialog__name">Andrew</span>
+                <span className="dialog__name">{props.name}</span>
             </div>
             <div className="dialog__body">
                 <p className="dialog__message">
-                    I am a normal popover and I can have text and everything.
-                    I am a normal popover and I can have text and everything.
+                    {props.message}
                 </p>
             </div>
         </div>

@@ -1,30 +1,10 @@
 import React from 'react';
-
 import Dialog from './Dialog/Dialog';
-
 import './Dialogs.css';
 
-const Dialogs = () => {
+const Dialogs = (props) => {
 
-    let dialogData = [
-        {
-            name: 'Andrew',
-            picture: 'https://www.freepnglogos.com/uploads/smile-png/smile-index-images-24.png',
-            message: 'I am a normal popover and I can have text and everything.',
-        },
-        {
-            name: 'Dmitry',
-            picture: 'https://www.freepnglogos.com/uploads/smile-png/smile-index-images-24.png',
-            message: 'I am a normal popover and I can have text and everything.',
-        },
-        {
-            name: 'Viktor',
-            picture: 'https://www.freepnglogos.com/uploads/smile-png/smile-index-images-24.png',
-            message: 'I am a normal popover and I can have text and everything. I am a normal popover and I can have text and everything.',
-        },
-    ];
-
-    let tplDialog = dialogData.map((post, key) => {
+    let tplDialog = props.dialogs.map((post, key) => {
         return (
             <Dialog
                 key={key}

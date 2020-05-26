@@ -31,6 +31,7 @@
 }
 
 .dialog__body {
+    width: 60%;
     padding: 15px;
     border-radius: 10px;
     border: 1px solid #eee;

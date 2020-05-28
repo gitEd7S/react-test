@@ -11,7 +11,7 @@ const User = () => {
                 <h2 className="user__name">Eduard S.</h2>
                 <ul className="user__data">
                     <li className="user__item">Date of Birth: 7 june</li>
-                    <li className="user__item">City: Ukrain</li>
+                    <li className="user__item">Country: Ukraine</li>
                     <li className="user__item">Education: BSU'11</li>
                     <li className="user__item">
                         Web Site: <a href="https://smart-lemon-school.com.ua/" target="_blank" rel="noopener noreferrer" className="user__link">smart-lemon-school.com.ua</a>

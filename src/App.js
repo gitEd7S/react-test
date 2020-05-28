@@ -14,8 +14,21 @@ const App = (props) => {
             <Header />
             <Navbar />
             <div className="main">
-                <Route exact path="/profile" component={Profile} />
-                <Route path="/messages" render={ () => <Messages dialogs={props.dialogs} listuser={props.listuser} /> }/>
+                <Route
+                    exact
+                    path="/profile"
+                    render={ () => <Profile
+                                        data={props.state.profileReducer}
+                                        dispatch={props.dispatch}
+                                    /> }
+                />
+                <Route
+                    path="/messages"
+                    render={ () => <Messages
+                                        data={props.state.messagesReducer}
+                                        dispatch={props.dispatch}
+                                    /> }
+                />
                 <Route exact path="/news" component={News} />
                 <Route exact path="/music" component={Music} />
                 <Route exact path="/settings" component={Settings} />

@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 
 const NavbarDialog = (props) => {
 
-    let online = props.online ? 'interlocutors__link--online' : '';
+    const online = props.online ? 'interlocutors__link--online' : '';
 
     return (
         <li className="interlocutors__item">

@@ -4,7 +4,7 @@ import './Interlocutors.css';
 
 const Interlocutors = (props) => {
 
-    let tplNavLink = props.listuser.map((link, key) => {
+    const tplNavLink = props.listuser.map((link, key) => {
         return (
             <NavbarDialog
                 key={key}

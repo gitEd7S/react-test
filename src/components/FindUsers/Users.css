@@ -61,3 +61,33 @@
     font-style: italic;
     color: #b1b1b1;
 }
+
+/* Pagination */
+
+.pagination {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+    margin: 10px 0;
+    overflow: auto;
+    padding: 0 25px 20px;
+}
+
+.pagination__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+    background-color: white;
+    border: 1px solid #eee;
+    cursor: pointer;
+}
+
+.pagination__item.active {
+    font-weight: 600;
+    background-color: #eee;
+}

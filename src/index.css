@@ -34,9 +34,10 @@ textarea::placeholder {
     padding-bottom: 50px;
     height: calc(100vh - 70px);
     overflow: auto;
+    padding-right: 10px;
 }
 
-::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-thumb { background-color: #c1c1c1; border-radius: 3px;}
 ::-webkit-scrollbar-button { height: 0; }
 ::-webkit-scrollbar-track-piece { background-color: #ffffff;}

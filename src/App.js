@@ -7,7 +7,7 @@ import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import MessagesContainer from './components/Messages/MessagesContainer';
-import FindUsersContainer from './components/FindUsers/FindUsersContainer';
+import UsersContainer from './components/FindUsers/UsersContainer';
 
 const App = (props) => {
     return (
@@ -17,7 +17,7 @@ const App = (props) => {
             <div className="main">
                 <Route
                     exact
-                    path="/profile"
+                    path="/"
                     render={ () => <ProfileContainer /> }
                 />
                 <Route
@@ -26,7 +26,7 @@ const App = (props) => {
                 />
                 <Route
                     path="/users"
-                    render={ () => <FindUsersContainer /> }
+                    render={ () => <UsersContainer /> }
                 />
                 <Route exact path="/news" component={News} />
                 <Route exact path="/music" component={Music} />

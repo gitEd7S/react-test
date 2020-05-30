@@ -44,6 +44,15 @@ const Navbar = () => {
                 </li>
                 <li className="navbar__settings">
                     <NavLink
+                        to="/users"
+                        className="navbar__link"
+                        activeClassName="navbar__link--active"
+                    >
+                        Find users
+                    </NavLink>
+                </li>
+                <li className="navbar__settings">
+                    <NavLink
                         to="/settings"
                         className="navbar__link"
                         activeClassName="navbar__link--active"

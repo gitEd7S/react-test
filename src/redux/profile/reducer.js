@@ -24,7 +24,13 @@ const initialState = {
 }
 
 const profileReducer = (state = initialState, action) => {
+
     switch(action.type) {
+        case CHANGE_POST_FORM:
+            return {
+                ...state,
+                messageTextarea: action.value
+            }
         case CREATE_POST:
             const lengthPosts = state.posts.length;
             const createID = state.posts[lengthPosts - 1].id + 1;
@@ -33,16 +39,11 @@ const profileReducer = (state = initialState, action) => {
                 message: state.messageTextarea,
                 countLike: 0,
             }
-            state.posts.push(newPost);
-            state.messageTextarea = '';
-
-            return state;
-
-        case CHANGE_POST_FORM:
-            state.messageTextarea = action.value;
-
-            return state;
-
+            return {
+                ...state,
+                messageTextarea: '',
+                posts: [...state.posts, newPost]
+            }
         default:
             return state;
     }

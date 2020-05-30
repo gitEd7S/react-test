@@ -1,15 +1,20 @@
 import React from 'react';
-import Interlocutors from './Interlocutors/Interlocutors';
 import Dialogs from './Dialogs/Dialogs';
+import Interlocutors from './Interlocutors/Interlocutors';
 import './Messages.css';
 
 const Messages = (props) => {
-    return(
+    return (
         <div className="messages">
-            <Interlocutors listuser={props.data.listuser} class="messages__interlocutors" />
+            <Interlocutors
+                listuser={props.state.listuser}
+                class="messages__interlocutors"
+            />
             <Dialogs
-                data={props.data}
-                dispatch={props.dispatch}
+                dialogs={props.state.dialogs}
+                messageTextTextarea={props.state.messageTextTextarea}
+                sendMessage={props.sendMessage}
+                changeMessage={props.changeMessage}
             />
         </div>
     );

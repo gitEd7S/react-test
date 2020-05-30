@@ -4,10 +4,10 @@ import './Interlocutors.css';
 
 const Interlocutors = (props) => {
 
-    const tplNavLink = props.listuser.map((link, key) => {
+    const tplNavLink = props.listuser.map((link) => {
         return (
             <NavbarDialog
-                key={key}
+                key={link.id}
                 id={link.id}
                 name={link.name}
                 online={link.online ? true : false}

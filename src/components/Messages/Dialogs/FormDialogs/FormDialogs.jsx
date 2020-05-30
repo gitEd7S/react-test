@@ -1,16 +1,14 @@
 import React from 'react';
 import './FormDialogs.css';
-import { dialogAddMessage, dialogChangeForm } from '../../../redux/messages/reducers';
 
 const FormDialogs = (props) => {
 
     const changeFormMessage = (e) => {
-        const action = dialogChangeForm(e.target.value);
-        props.dispatch(action)
+        props.changeMessage(e.target.value)
     }
 
     const sendFormMessage = () => {
-        props.dispatch(dialogAddMessage())
+        props.sendMessage()
     }
 
     return (
@@ -24,9 +22,7 @@ const FormDialogs = (props) => {
                 type="button"
                 className="form-dialogs__button"
                 onClick={sendFormMessage}
-            >
-                Send
-            </button>
+            >  Send </button>
         </div>
     )
 }

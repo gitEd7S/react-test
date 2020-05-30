@@ -2,11 +2,12 @@ import React from 'react';
 import {Route} from 'react-router-dom';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
-import Profile from './components/Profile/Profile';
-import Messages from './components/Messages/Messages';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
+import ProfileContainer from './components/Profile/ProfileContainer';
+import MessagesContainer from './components/Messages/MessagesContainer';
+import FindUsersContainer from './components/FindUsers/FindUsersContainer';
 
 const App = (props) => {
     return (
@@ -17,17 +18,15 @@ const App = (props) => {
                 <Route
                     exact
                     path="/profile"
-                    render={ () => <Profile
-                                        data={props.state.profileReducer}
-                                        dispatch={props.dispatch}
-                                    /> }
+                    render={ () => <ProfileContainer /> }
                 />
                 <Route
                     path="/messages"
-                    render={ () => <Messages
-                                        data={props.state.messagesReducer}
-                                        dispatch={props.dispatch}
-                                    /> }
+                    render={ () => <MessagesContainer /> }
+                />
+                <Route
+                    path="/users"
+                    render={ () => <FindUsersContainer /> }
                 />
                 <Route exact path="/news" component={News} />
                 <Route exact path="/music" component={Music} />

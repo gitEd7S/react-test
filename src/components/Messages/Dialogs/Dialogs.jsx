@@ -1,14 +1,14 @@
 import React from 'react';
 import Dialog from './Dialog/Dialog';
 import './Dialogs.css';
-import FormDialogs from '../FormDialogs/FormDialogs';
+import FormDialogs from './FormDialogs/FormDialogs';
 
 const Dialogs = (props) => {
 
-    const tplDialog = props.data.dialogs.map((post, key) => {
+    const tplDialogs = props.dialogs.map((post) => {
         return (
             <Dialog
-                key={key}
+                key={post.id}
                 class="dialogs__dialog"
                 name={post.name}
                 picture={post.picture}
@@ -19,12 +19,11 @@ const Dialogs = (props) => {
 
     return(
         <div className="dialogs">
-            <div className="dialogs__wrapper">
-                { tplDialog }
-            </div>
+            <div className="dialogs__wrapper"> { tplDialogs } </div>
             <FormDialogs
-                value={props.data.messageTextTextarea}
-                dispatch={props.dispatch}
+                value={props.messageTextTextarea}
+                sendMessage={props.sendMessage}
+                changeMessage={props.changeMessage}
             />
         </div>
     );

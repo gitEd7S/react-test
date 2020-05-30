@@ -3,14 +3,13 @@ import Banner from './Banner/Banner';
 import User from './User/User';
 import NewPost from './NewPost/NewPost';
 import './Profile.css';
-import {newPostAction, textAction} from '../../redux/profile/reducers'
 
 const Profile = (props) => {
 
-    const CreateNewPost = props.data.posts.map((post, key) => {
+    const CreateNewPost = props.data.posts.map((post) => {
         return (
             <NewPost
-                key={key}
+                key={post.id}
                 picture={props.data.userPicture}
                 message={post.message}
                 countLike={post.countLike}
@@ -18,14 +17,12 @@ const Profile = (props) => {
         );
     })
 
-    const addNewPost = (e) => {
-        e.preventDefault()
-        props.dispatch(newPostAction());
+    const onChangeText = (e) => {
+        props.updateNewPostText(e.target.value);
     }
 
-    const onChangeText = (e) => {
-        const action = textAction(e.target.value);
-        props.dispatch(action)
+    const onAddPost = () => {
+        props.addNewPost();
     }
 
     return (
@@ -43,8 +40,8 @@ const Profile = (props) => {
                         value={props.data.messageTextarea}
                     />
                     <button
-                        type="submit"
-                        onClick={ addNewPost }
+                        type="button"
+                        onClick={ onAddPost }
                         className="create-post__submit"
                     >
                         Send

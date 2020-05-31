@@ -1,5 +1,6 @@
 const CREATE_POST = 'CREATE-POST';
 const CHANGE_POST_FORM = 'CHANGE-POST-FORM';
+const SET_USER_PROFILE = 'SET-USER-PROFILE';
 
 const initialState = {
     messageTextarea: '',
@@ -20,7 +21,11 @@ const initialState = {
             message: 'Hey! 2',
             countLike: 1,
         },
-    ]
+    ],
+    userProfile: {
+        contacts: {},
+        photos: {},
+    }
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -31,7 +36,8 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 messageTextarea: action.value
             }
-        case CREATE_POST:
+
+            case CREATE_POST:
             const lengthPosts = state.posts.length;
             const createID = state.posts[lengthPosts - 1].id + 1;
             const newPost = {
@@ -44,12 +50,20 @@ const profileReducer = (state = initialState, action) => {
                 messageTextarea: '',
                 posts: [...state.posts, newPost]
             }
+
+        case SET_USER_PROFILE:
+            return {
+                ...state,
+                userProfile: action.profile
+            }
+
         default:
             return state;
     }
 }
 
-export const newPostAction = () => ({ type: CREATE_POST })
-export const textAction = (value) => ({ type: CHANGE_POST_FORM, value: value })
+export const addNewPost = () => ({ type: CREATE_POST })
+export const updateNewPostText = (value) => ({ type: CHANGE_POST_FORM, value })
+export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 
 export default profileReducer;

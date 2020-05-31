@@ -16,8 +16,7 @@ const App = (props) => {
             <Navbar />
             <div className="main">
                 <Route
-                    exact
-                    path="/"
+                    path="/profile"
                     render={ () => <ProfileContainer /> }
                 />
                 <Route

@@ -28,7 +28,7 @@ const Profile = (props) => {
     return (
         <div>
             <Banner />
-            <User />
+            <User data={props.data.userProfile} />
             <div className="main__creacte-post create-post">
                 <span className="create-post__title">My post</span>
                 <form action="#" className="create-post__form">

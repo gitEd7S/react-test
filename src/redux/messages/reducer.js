@@ -46,7 +46,7 @@ const messagesReducer = (state = initialState, action) => {
     }
 }
 
-export const dialogChangeForm = (value) => ({ type: NEW_MESSAGE_DIALOG, value: value })
-export const dialogAddMessage = () => ({ type: NEW_MESSAGE_DIALOG_ADD })
+export const changeMessage = (value) => ({ type: NEW_MESSAGE_DIALOG, value: value })
+export const sendMessage = () => ({ type: NEW_MESSAGE_DIALOG_ADD })
 
 export default messagesReducer;

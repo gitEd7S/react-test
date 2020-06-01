@@ -11,7 +11,7 @@ const User = (props) => {
             <article className="main__user user">
                 <picture className="user__picture">
                     <img
-                        src={props.data.photos != null ? props.data.photos.large : userPicture}
+                        src={props.data.photos.large != null ? props.data.photos.large : userPicture}
                         alt=''
                         className="user__image"
                     />

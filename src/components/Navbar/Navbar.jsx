@@ -8,6 +8,7 @@ const Navbar = () => {
             <ul className="navbar__list">
                 <li className="navbar__item">
                     <NavLink
+                        exact
                         to="/profile"
                         className="navbar__link"
                         activeClassName="navbar__link--active"

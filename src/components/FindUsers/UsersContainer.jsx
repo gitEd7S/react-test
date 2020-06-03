@@ -10,7 +10,7 @@ import {
     toggleIsFetching,
 } from '../../redux/users/reducer';
 import Preloader from '../common/Preloader/Preloader';
-import { getUsers } from '../../api/api';
+import { API } from '../../api/api';
 
 class UserContainer extends React.Component {
 
@@ -18,7 +18,7 @@ class UserContainer extends React.Component {
 
         this.props.toggleIsFetching(true);
 
-        getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+        API.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
             this.props.setUsers(data.items);
             this.props.totalUsersCountReady(data.totalCount);
             this.props.toggleIsFetching(false);
@@ -29,7 +29,7 @@ class UserContainer extends React.Component {
 
         this.props.toggleIsFetching(true);
 
-        getUsers(page, this.props.pageSize).then(data => {
+        API.getUsers(page, this.props.pageSize).then(data => {
             this.props.setCurrentPage(page);
             this.props.setUsers(data.items);
             this.props.toggleIsFetching(false);

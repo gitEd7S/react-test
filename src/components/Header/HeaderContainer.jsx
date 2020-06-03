@@ -2,12 +2,12 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Header from './Header';
 import { setUserData } from '../../redux/auth/reducer';
-import { getAuth } from '../../api/api';
+import { API } from '../../api/api';
 
 class HeaderContainer extends React.Component {
 
     componentDidMount() {
-        getAuth().then(data => {
+        API.getAuth().then(data => {
             if(data.resultCode === 0) {
                 this.props.setUserData(data.data)
             }

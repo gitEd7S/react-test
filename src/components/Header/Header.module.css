@@ -4,10 +4,24 @@
     grid-area: header;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 10px;
     background-color: var(--color-view-header);
 }
 
 .header__image {
     width: 50px;
+}
+
+.login {
+    padding: 20px;
+}
+
+.login a,
+.login span {
+    color: white;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 16px;
+    font-weight: 600;
 }

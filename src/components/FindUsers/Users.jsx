@@ -1,5 +1,4 @@
 import React from 'react';
-import * as axios from 'axios';
 import {NavLink} from 'react-router-dom';
 import userPicture from '../../assets/images/user.jpg';
 import './Users.css';
@@ -46,20 +45,26 @@ const Users = (props) => {
                                 </NavLink>
                                 {
                                     !user.followed
-                                    ? <button className="user-item__follow" onClick={ () => {
+                                        ? <button className={(!props.isFollowingInProgress.some(id => id === user.id) ? '' : ' user-item__follow--disabled') + " user-item__follow"} onClick={ () => {
+
+                                        props.toggleIsFollowingInProgress(true, user.id)
 
                                         API.postFollow(user.id).then(data => {
-                                            if(data.resultCode == 0) {
+                                            if(data.resultCode === 0) {
                                                 props.follow(user.id);
+                                                props.toggleIsFollowingInProgress(false, user.id)
                                             }
                                         })
 
                                     }}>Follow</button>
-                                    : <button className="user-item__follow" onClick={ () => {
+                                    : <button className={(!props.isFollowingInProgress.some(id => id === user.id) ? '' : ' user-item__follow--disabled') + " user-item__follow"} onClick={ () => {
+
+                                        props.toggleIsFollowingInProgress(true, user.id)
 
                                         API.postUnfollow(user.id).then(data => {
-                                            if(data.resultCode == 0) {
+                                            if(data.resultCode === 0) {
                                                 props.unfollow(user.id);
+                                                props.toggleIsFollowingInProgress(false, user.id)
                                             }
                                         })
 

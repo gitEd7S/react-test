@@ -12,6 +12,14 @@ const Users = (props) => {
 
     for(let i = 1; i <= pagesCount; i++) { pages.push(i); }
 
+    const auditLoadDisabled = ($id) => {
+        return (
+            props.isFollowingInProgress.some(id => id === $id)
+                ? 'user-item__follow--disabled'
+                : ''
+        )
+    }
+
     return (
         <div>
             <div className="pagination">
@@ -45,7 +53,7 @@ const Users = (props) => {
                                 </NavLink>
                                 {
                                     !user.followed
-                                        ? <button className={(!props.isFollowingInProgress.some(id => id === user.id) ? '' : ' user-item__follow--disabled') + " user-item__follow"} onClick={ () => {
+                                        ? <button className={auditLoadDisabled(user.id) + " user-item__follow"} onClick={ () => {
 
                                         props.toggleIsFollowingInProgress(true, user.id)
 
@@ -57,7 +65,7 @@ const Users = (props) => {
                                         })
 
                                     }}>Follow</button>
-                                    : <button className={(!props.isFollowingInProgress.some(id => id === user.id) ? '' : ' user-item__follow--disabled') + " user-item__follow"} onClick={ () => {
+                                    : <button className={auditLoadDisabled(user.id) + " user-item__follow"} onClick={ () => {
 
                                         props.toggleIsFollowingInProgress(true, user.id)
 

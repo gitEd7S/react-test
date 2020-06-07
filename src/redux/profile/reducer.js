@@ -1,3 +1,5 @@
+import { API } from "../../api/api";
+
 const CREATE_POST = 'CREATE-POST';
 const CHANGE_POST_FORM = 'CHANGE-POST-FORM';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
@@ -65,5 +67,14 @@ const profileReducer = (state = initialState, action) => {
 export const addNewPost = () => ({ type: CREATE_POST })
 export const updateNewPostText = (value) => ({ type: CHANGE_POST_FORM, value })
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
+
+export const getUserTunkCreator = ($id) => {
+    return (dispatch) => {
+
+        if(!$id) { $id = 2; }
+
+        API.getUserProfile($id).then(data => { dispatch(setUserProfile(data)) })
+    }
+}
 
 export default profileReducer;

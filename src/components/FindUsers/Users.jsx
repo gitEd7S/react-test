@@ -2,7 +2,6 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import userPicture from '../../assets/images/user.jpg';
 import './Users.css';
-import { API } from '../../api/api';
 
 const Users = (props) => {
 
@@ -52,31 +51,14 @@ const Users = (props) => {
                                     />
                                 </NavLink>
                                 {
-                                    !user.followed
-                                        ? <button className={auditLoadDisabled(user.id) + " user-item__follow"} onClick={ () => {
-
-                                        props.toggleIsFollowingInProgress(true, user.id)
-
-                                        API.postFollow(user.id).then(data => {
-                                            if(data.resultCode === 0) {
-                                                props.follow(user.id);
-                                                props.toggleIsFollowingInProgress(false, user.id)
-                                            }
-                                        })
-
-                                    }}>Follow</button>
-                                    : <button className={auditLoadDisabled(user.id) + " user-item__follow"} onClick={ () => {
-
-                                        props.toggleIsFollowingInProgress(true, user.id)
-
-                                        API.postUnfollow(user.id).then(data => {
-                                            if(data.resultCode === 0) {
-                                                props.unfollow(user.id);
-                                                props.toggleIsFollowingInProgress(false, user.id)
-                                            }
-                                        })
-
-                                    }}>Unfollow</button>
+                                    <button
+                                        className={auditLoadDisabled(user.id) + " user-item__follow"}
+                                        onClick={ () => {
+                                            !user.followed
+                                            ? props.followThunkCreator(user.id)
+                                            : props.unfollowThunkCreator(user.id)
+                                        }}
+                                    > { !user.followed ? 'Follow' : 'Unfollow' } </button>
                                 }
                             </div>
                             <div className="user-item__body">

@@ -4,7 +4,8 @@ import Messages from './Messages';
 
 const mapStateToProps = (state) => {
     return {
-        state: state.messagesReducer
+        state: state.messagesReducer,
+        isAuth: state.authReducer.isAuth
     }
 }
 

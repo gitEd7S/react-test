@@ -1,6 +1,6 @@
-import React from 'react';
-import {NavLink} from 'react-router-dom';
-import './Navbar.css';
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import './Navbar.css'
 
 const Navbar = () => {
     return (
@@ -63,7 +63,7 @@ const Navbar = () => {
                 </li>
             </ul>
         </nav>
-    );
+    )
 }
 
-export default Navbar;
+export default Navbar

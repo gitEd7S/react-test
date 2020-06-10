@@ -1,10 +1,9 @@
-import React from 'react';
+import React from 'react'
+import Preloader from '../../common/Preloader/Preloader'
+import userPicture from '../../../assets/images/user.jpg'
 import './User.css'
-import userPicture from '../../../assets/images/user.jpg';
-import Preloader from '../../common/Preloader/Preloader';
 
 const User = (props) => {
-
     if(!props.data) { return <Preloader /> }
     else {
         return(
@@ -27,8 +26,8 @@ const User = (props) => {
                     </ul>
                 </div>
             </article>
-        );
+        )
     }
 }
 
-export default User;
+export default User

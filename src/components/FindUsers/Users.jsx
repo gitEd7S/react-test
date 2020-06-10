@@ -1,16 +1,12 @@
-import React from 'react';
-import {NavLink} from 'react-router-dom';
-import userPicture from '../../assets/images/user.jpg';
-import './Users.css';
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import userPicture from '../../assets/images/user.jpg'
+import './Users.css'
 
 const Users = (props) => {
-
-    const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-
-    const pages = [];
-
-    for(let i = 1; i <= pagesCount; i++) { pages.push(i); }
-
+    const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
+    const pages = []
+    for(let i = 1; i <= pagesCount; i++) { pages.push(i) }
     const auditLoadDisabled = ($id) => {
         return (
             props.isFollowingInProgress.some(id => id === $id)
@@ -18,7 +14,6 @@ const Users = (props) => {
                 : ''
         )
     }
-
     return (
         <div>
             <div className="pagination">
@@ -73,4 +68,4 @@ const Users = (props) => {
     )
 }
 
-export default Users;
+export default Users

@@ -1,10 +1,9 @@
-import React from 'react';
-import Dialog from './Dialog/Dialog';
-import './Dialogs.css';
-import FormDialogs from './FormDialogs/FormDialogs';
+import React from 'react'
+import Dialog from './Dialog/Dialog'
+import FormDialogs from './FormDialogs/FormDialogs'
+import './Dialogs.css'
 
 const Dialogs = (props) => {
-
     const tplDialogs = props.dialogs.map((post) => {
         return (
             <Dialog
@@ -14,9 +13,8 @@ const Dialogs = (props) => {
                 picture={post.picture}
                 message={post.message}
             />
-        );
+        )
     })
-
     return(
         <div className="dialogs">
             <div className="dialogs__wrapper"> { tplDialogs } </div>
@@ -26,7 +24,7 @@ const Dialogs = (props) => {
                 changeMessage={props.changeMessage}
             />
         </div>
-    );
+    )
 }
 
-export default Dialogs;
+export default Dialogs

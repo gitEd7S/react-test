@@ -1,5 +1,5 @@
-import React from 'react';
-import './Banner.css';
+import React from 'react'
+import './Banner.css'
 
 const Banner = () => {
     return(
@@ -8,7 +8,7 @@ const Banner = () => {
                 <img src="https://www.starpool.com/wp-content/uploads/2019/06/Sauna-Outdoor-4.jpg" alt="" className="banner__image"/>
             </picture>
         </div>
-    );
-};
+    )
+}
 
-export default Banner;
+export default Banner

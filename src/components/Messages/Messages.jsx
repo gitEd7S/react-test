@@ -1,10 +1,9 @@
-import React from 'react';
-import Dialogs from './Dialogs/Dialogs';
-import Interlocutors from './Interlocutors/Interlocutors';
-import './Messages.css';
+import React from 'react'
+import Dialogs from './Dialogs/Dialogs'
+import Interlocutors from './Interlocutors/Interlocutors'
+import './Messages.css'
 
 const Messages = (props) => {
-
     return (
         <div className="messages">
             <Interlocutors
@@ -18,7 +17,7 @@ const Messages = (props) => {
                 changeMessage={props.changeMessage}
             />
         </div>
-    );
+    )
 }
 
-export default Messages;
+export default Messages

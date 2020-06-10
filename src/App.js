@@ -1,16 +1,16 @@
-import React from 'react';
-import {Route} from 'react-router-dom';
+import React from 'react'
+import {Route} from 'react-router-dom'
 
-import HeaderContainer from './components/Header/HeaderContainer';
-import ProfileContainer from './components/Profile/ProfileContainer';
-import MessagesContainer from './components/Messages/MessagesContainer';
-import UsersContainer from './components/FindUsers/UsersContainer';
+import HeaderContainer from './components/Header/HeaderContainer'
+import ProfileContainer from './components/Profile/ProfileContainer'
+import MessagesContainer from './components/Messages/MessagesContainer'
+import UsersContainer from './components/FindUsers/UsersContainer'
 
-import Navbar from './components/Navbar/Navbar';
-import News from './components/News/News';
-import Music from './components/Music/Music';
-import Settings from './components/Settings/Settings';
-import Login from './components/Login/Login';
+import Navbar from './components/Navbar/Navbar'
+import News from './components/News/News'
+import Music from './components/Music/Music'
+import Settings from './components/Settings/Settings'
+import Login from './components/Login/Login'
 
 const App = (props) => {
     return (
@@ -40,7 +40,7 @@ const App = (props) => {
                 />
             </div>
         </div>
-    );
+    )
 }
 
-export default App;
+export default App

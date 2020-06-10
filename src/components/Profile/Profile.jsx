@@ -1,11 +1,10 @@
-import React from 'react';
-import Banner from './Banner/Banner';
-import User from './User/User';
-import NewPost from './NewPost/NewPost';
-import './Profile.css';
+import React from 'react'
+import Banner from './Banner/Banner'
+import User from './User/User'
+import NewPost from './NewPost/NewPost'
+import './Profile.css'
 
 const Profile = (props) => {
-
     const CreateNewPost = props.data.posts.map((post) => {
         return (
             <NewPost
@@ -14,17 +13,14 @@ const Profile = (props) => {
                 message={post.message}
                 countLike={post.countLike}
             />
-        );
+        )
     })
-
     const onChangeText = (e) => {
-        props.updateNewPostText(e.target.value);
+        props.updateNewPostText(e.target.value)
     }
-
     const onAddPost = () => {
-        props.addNewPost();
+        props.addNewPost()
     }
-
     return (
         <div>
             <Banner />
@@ -50,7 +46,7 @@ const Profile = (props) => {
             </div>
             <div className="main__posts">{CreateNewPost}</div>
         </div>
-    );
+    )
 }
 
-export default Profile;
+export default Profile

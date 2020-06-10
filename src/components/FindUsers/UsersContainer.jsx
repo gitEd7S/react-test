@@ -1,24 +1,21 @@
-import React from 'react';
-import Users from './Users';
-import {connect} from 'react-redux';
+import React from 'react'
+import Users from './Users'
+import { connect } from 'react-redux'
 import {
     getUserThunkCreator,
     getUserChangedThunkCreator,
     followThunkCreator,
     unfollowThunkCreator,
-} from '../../redux/users/reducer';
-import Preloader from '../common/Preloader/Preloader';
+} from '../../redux/users/reducer'
+import Preloader from '../common/Preloader/Preloader'
 
 class UserContainer extends React.Component {
-
     componentDidMount () {
-        this.props.getUserThunkCreator(this.props.currentPage, this.props.pageSize);
+        this.props.getUserThunkCreator(this.props.currentPage, this.props.pageSize)
     }
-
     onClickPageChanged (page) {
-        this.props.getUserChangedThunkCreator(page, this.props.pageSize);
+        this.props.getUserChangedThunkCreator(page, this.props.pageSize)
     }
-
     render () {
         return (
             <>
@@ -38,7 +35,7 @@ class UserContainer extends React.Component {
                         />
                 }
             </>
-        );
+        )
     }
 }
 
@@ -58,4 +55,4 @@ export default connect(mapStateToProps, {
     getUserChangedThunkCreator,
     followThunkCreator,
     unfollowThunkCreator,
-})(UserContainer);
+})(UserContainer)

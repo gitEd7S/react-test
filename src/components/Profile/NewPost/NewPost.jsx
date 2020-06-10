@@ -1,5 +1,5 @@
-import React from 'react';
-import './NewPost.css';
+import React from 'react'
+import './NewPost.css'
 
 const NewPost = (props) => {
     return (
@@ -12,7 +12,7 @@ const NewPost = (props) => {
                 <span className="new-post__like">Like: { props.countLike }</span>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default NewPost;
+export default NewPost

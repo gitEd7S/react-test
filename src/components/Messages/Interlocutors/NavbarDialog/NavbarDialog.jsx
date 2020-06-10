@@ -1,10 +1,8 @@
-import React from 'react';
-import {NavLink} from 'react-router-dom';
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const NavbarDialog = (props) => {
-
-    const online = props.online ? 'interlocutors__link--online' : '';
-
+    const online = props.online ? 'interlocutors__link--online' : ''
     return (
         <li className="interlocutors__item">
             <NavLink
@@ -15,7 +13,7 @@ const NavbarDialog = (props) => {
                 {props.name}
             </NavLink>
         </li>
-    );
+    )
 }
 
-export default NavbarDialog;
+export default NavbarDialog

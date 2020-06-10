@@ -1,5 +1,5 @@
-import React from 'react';
-import imgGifLoader from '../../../assets/images/loader.gif';
+import React from 'react'
+import imgGifLoader from '../../../assets/images/loader.gif'
 
 const Preloader = () => {
     return(
@@ -9,4 +9,4 @@ const Preloader = () => {
     )
 }
 
-export default Preloader;
+export default Preloader

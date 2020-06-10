@@ -1,5 +1,5 @@
-import React from 'react';
-import './FormDialogs.css';
+import React from 'react'
+import './FormDialogs.css'
 
 const FormDialogs = (props) => {
 
@@ -27,4 +27,4 @@ const FormDialogs = (props) => {
     )
 }
 
-export default FormDialogs;
+export default FormDialogs

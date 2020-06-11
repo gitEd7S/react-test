@@ -1,0 +1,22 @@
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    width: fit-content;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn--dark {
+    background-color: black;
+    color: white;
+}
+
+.btn--ligth {
+    background-color: white;
+    color: black;
+}

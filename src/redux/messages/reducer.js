@@ -19,7 +19,6 @@ const initialState = {
 }
 
 const messagesReducer = (state = initialState, action) => {
-
     switch(action.type) {
         case NEW_MESSAGE_DIALOG:
             return {

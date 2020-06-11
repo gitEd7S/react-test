@@ -26,12 +26,13 @@
     font-size: 26px;
     font-weight: 500;
     margin-top: 0px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .user__data {
     padding: 0;
     list-style-type: none;
+    margin: 0;
 }
 
 .user__item {
@@ -41,4 +42,16 @@
 
 .user__link {
     text-decoration: none;
+}
+
+.status__title {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.status__input {
+    margin-bottom: 15px;
 }

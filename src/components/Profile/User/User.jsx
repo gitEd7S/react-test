@@ -1,6 +1,7 @@
 import React from 'react'
 import Preloader from '../../common/Preloader/Preloader'
 import userPicture from '../../../assets/images/user.jpg'
+import UserStatus from './UserStatus'
 import './User.css'
 
 const User = (props) => {
@@ -16,6 +17,7 @@ const User = (props) => {
                     />
                 </picture>
                 <div className="user__content">
+                    <UserStatus status="Test" />
                     <h2 className="user__name"> {props.data.fullName} </h2>
                     <ul className="user__data">
                         <li className="user__item"> {props.data.aboutMe} </li>

@@ -18,9 +18,7 @@ const initialState = {
 }
 
 const usersReducer = (state = initialState, action) => {
-
     switch(action.type) {
-
         case FOLLOW_ACTION:
             return {
                 ...state,
@@ -31,7 +29,6 @@ const usersReducer = (state = initialState, action) => {
                     return user;
                 })
             }
-
         case UNFOLLOW_ACTION:
             return {
                 ...state,
@@ -42,31 +39,26 @@ const usersReducer = (state = initialState, action) => {
                     return user;
                 })
             }
-
         case SET_USERS_ACTION:
             return {
                 ...state,
                 users: [...action.users]
             }
-
         case SET_CURRENT_PAGE:
             return {
                 ...state,
                 currentPage: action.page,
             }
-
         case SET_TOTAL_COUNT:
             return {
                 ...state,
                 totalUsersCount: action.total,
             }
-
         case TOGGLE_IS_FETCHING:
             return {
                 ...state,
                 isFetching: action.fetching,
             }
-
         case TOGGLE_IS_FOLLOWING_IN_PROGRESS:
             return {
                 ...state,
@@ -74,7 +66,6 @@ const usersReducer = (state = initialState, action) => {
                     ? [...state.isFollowingInProgress, action.id]
                     : state.isFollowingInProgress.filter(id => id !== action.id),
             }
-
         default:
             return state
     }

@@ -31,14 +31,12 @@ const initialState = {
 }
 
 const profileReducer = (state = initialState, action) => {
-
     switch(action.type) {
         case CHANGE_POST_FORM:
             return {
                 ...state,
                 messageTextarea: action.value
             }
-
             case CREATE_POST:
             const lengthPosts = state.posts.length;
             const createID = state.posts[lengthPosts - 1].id + 1;
@@ -52,13 +50,11 @@ const profileReducer = (state = initialState, action) => {
                 messageTextarea: '',
                 posts: [...state.posts, newPost]
             }
-
         case SET_USER_PROFILE:
             return {
                 ...state,
                 userProfile: action.profile
             }
-
         default:
             return state;
     }
@@ -70,9 +66,7 @@ export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 
 export const getUserTunkCreator = ($id) => {
     return (dispatch) => {
-
         if(!$id) { $id = 2; }
-
         API.getUserProfile($id).then(data => { dispatch(setUserProfile(data)) })
     }
 }

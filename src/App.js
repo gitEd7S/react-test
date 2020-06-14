@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route} from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 import HeaderContainer from './components/Header/HeaderContainer'
 import ProfileContainer from './components/Profile/ProfileContainer'

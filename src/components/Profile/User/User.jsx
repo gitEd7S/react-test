@@ -17,7 +17,10 @@ const User = (props) => {
                     />
                 </picture>
                 <div className="user__content">
-                    <UserStatus status="Test" />
+                    <UserStatus
+                        status={props.status}
+                        updateStatus={props.updateStatus}
+                    />
                     <h2 className="user__name"> {props.data.fullName} </h2>
                     <ul className="user__data">
                         <li className="user__item"> {props.data.aboutMe} </li>

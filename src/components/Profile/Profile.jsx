@@ -24,7 +24,11 @@ const Profile = (props) => {
     return (
         <div>
             <Banner />
-            <User data={props.data.userProfile} />
+            <User
+                data={props.data.userProfile}
+                status={props.data.status}
+                updateStatus={props.updateStatus}
+            />
             <div className="main__creacte-post create-post">
                 <span className="create-post__title">My post</span>
                 <form action="#" className="create-post__form">
@@ -39,9 +43,7 @@ const Profile = (props) => {
                         type="button"
                         onClick={ onAddPost }
                         className="create-post__submit"
-                    >
-                        Send
-                    </button>
+                    > Send </button>
                 </form>
             </div>
             <div className="main__posts">{CreateNewPost}</div>

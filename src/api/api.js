@@ -23,5 +23,11 @@ export const API = {
     },
     postUnfollow (id) {
         return instance.delete(`follow/${id}`).then(responce => responce.data)
+    },
+    getStatus (id) {
+        return instance.get(`profile/status/${id}`).then(responce => responce.data)
+    },
+    updateStatus (status) {
+        return instance.put(`profile/status`, {status}).then(responce => responce.data)
     }
 }

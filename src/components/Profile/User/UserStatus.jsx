@@ -4,35 +4,41 @@ import './User.css'
 class UserStatus extends React.Component {
     state = {
         editMode: false,
+        status: this.props.status
     }
-    useEditActivated() {
+    useEditActivated = () => {
         this.setState({
             editMode: true,
         })
     }
-    useEditDisactivated() {
+    changeInput = (e) => {
+        this.setState({
+            status: e.target.value
+        })
+    }
+    useEditDisactivated = () => {
         this.setState({
             editMode: false,
         })
+        this.props.updateStatus(this.state.status)
     }
     render() {
         return (
             <div className="status">
                 {!this.state.editMode &&
                     <span
-                        onDoubleClick={this.useEditActivated.bind(this)}
+                        onDoubleClick={this.useEditActivated}
                         className="status__title"
-                    >
-                        {this.props.status}
-                    </span>
+                    > {this.props.status} </span>
                 }
                 {this.state.editMode &&
                     <input
                         type="text"
-                        value={this.props.status}
+                        value={this.state.status}
                         className="status__input"
-                        autoFocus="true"
-                        onBlur={this.useEditDisactivated.bind(this)}
+                        autoFocus
+                        onBlur={this.useEditDisactivated}
+                        onChange={this.changeInput}
                     />
                 }
             </div>

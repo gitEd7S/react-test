@@ -88,8 +88,8 @@ export const getStatusTunkCreator = ($id) => {
 
 export const updateStatusTunkCreator = (status) => {
     return (dispatch) => API.updateStatus(status).then(response => {
-        if(response.data.resultCode === 0) {
-            dispatch(getStatusAction(response))
+        if(response.resultCode === 0) {
+            dispatch(getStatusAction(status))
         }
     })
 }

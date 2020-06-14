@@ -6,6 +6,13 @@ class UserStatus extends React.Component {
         editMode: false,
         status: this.props.status
     }
+    componentDidUpdate (prevProps, prevState) {
+        if(prevProps.status !== this.props.status) {
+            this.setState({
+                status: this.props.status,
+            })
+        }
+    }
     useEditActivated = () => {
         this.setState({
             editMode: true,
@@ -29,7 +36,7 @@ class UserStatus extends React.Component {
                     <span
                         onDoubleClick={this.useEditActivated}
                         className="status__title"
-                    > {this.props.status} </span>
+                    > {this.state.status} </span>
                 }
                 {this.state.editMode &&
                     <input

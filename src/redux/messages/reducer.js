@@ -1,8 +1,6 @@
-const NEW_MESSAGE_DIALOG = 'NEW-MESSAGE-DIALOG';
 const NEW_MESSAGE_DIALOG_ADD = 'NEW-MESSAGE-DIALOG-ADD';
 
 const initialState = {
-    messageTextTextarea: '',
     dialogs: [
         {
             id: 1,
@@ -20,20 +18,14 @@ const initialState = {
 
 const messagesReducer = (state = initialState, action) => {
     switch(action.type) {
-        case NEW_MESSAGE_DIALOG:
-            return {
-                ...state,
-                messageTextTextarea: action.value
-            }
         case NEW_MESSAGE_DIALOG_ADD:
-            const text = state.messageTextTextarea;
             const lengthPosts = state.dialogs.length;
             const createID = state.dialogs[lengthPosts - 1].id + 1;
             const dialog = {
                 id: createID,
                 name: 'Viktor',
                 picture: 'https://www.freepnglogos.com/uploads/smile-png/smile-index-images-24.png',
-                message: text,
+                message: action.text,
             }
             return {
                 ...state,
@@ -45,7 +37,6 @@ const messagesReducer = (state = initialState, action) => {
     }
 }
 
-export const changeMessage = (value) => ({ type: NEW_MESSAGE_DIALOG, value: value })
-export const sendMessage = () => ({ type: NEW_MESSAGE_DIALOG_ADD })
+export const sendMessage = (payload) => ({ type: NEW_MESSAGE_DIALOG_ADD, text: payload })
 
 export default messagesReducer;

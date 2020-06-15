@@ -1,13 +1,11 @@
 import { API } from "../../api/api"
 
 const CREATE_POST = 'CREATE-POST'
-const CHANGE_POST_FORM = 'CHANGE-POST-FORM'
 const SET_USER_PROFILE = 'SET-USER-PROFILE'
 const GET_STATUS = 'GET-STATUS'
 
 const initialState = {
     status: 'Привет !',
-    messageTextarea: '',
     userPicture: 'https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/body-image/public/1-corvette-stingray-c8-2019-fd-hr-hero-front_0.jpg?itok=SEYe_vLy',
     posts: [
         {
@@ -34,17 +32,12 @@ const initialState = {
 
 const profileReducer = (state = initialState, action) => {
     switch(action.type) {
-        case CHANGE_POST_FORM:
-            return {
-                ...state,
-                messageTextarea: action.value
-            }
-            case CREATE_POST:
+        case CREATE_POST:
             const lengthPosts = state.posts.length
             const createID = state.posts[lengthPosts - 1].id + 1
             const newPost = {
                 id: createID,
-                message: state.messageTextarea,
+                message: action.text,
                 countLike: 0,
             }
             return {
@@ -67,8 +60,7 @@ const profileReducer = (state = initialState, action) => {
     }
 }
 
-export const addNewPost = () => ({ type: CREATE_POST })
-export const updateNewPostText = (value) => ({ type: CHANGE_POST_FORM, value })
+export const addNewPost = (payload) => ({ type: CREATE_POST, text: payload })
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 export const getStatusAction = (status) => ({ type: GET_STATUS, status })
 

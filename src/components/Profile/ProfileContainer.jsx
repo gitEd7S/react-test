@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom'
 import withAuthRedirect from '../../hoc/withAuthRedirect'
 import {
     addNewPost,
-    updateNewPostText,
     getUserTunkCreator,
     getStatusTunkCreator,
     updateStatusTunkCreator,
@@ -35,7 +34,6 @@ const mapStateToProps = (state) => {
 export default compose(
     connect(mapStateToProps, {
         addNewPost,
-        updateNewPostText,
         getUserTunkCreator,
         getStatus: getStatusTunkCreator,
         updateStatus: updateStatusTunkCreator,

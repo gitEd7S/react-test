@@ -1,5 +1,7 @@
 import React from 'react'
-import { Field, reduxForm } from 'redux-form'
+import { reset, Field, reduxForm } from 'redux-form'
+
+const resetLoginFormRedux = (result, dispatch) => dispatch(reset('login'))
 
 const LoginForm = (props) => {
 
@@ -36,4 +38,7 @@ const LoginForm = (props) => {
     )
 }
 
-export const LoginFormRedux = reduxForm({ form: 'login' })(LoginForm)
+export const LoginFormRedux = reduxForm({
+    form: 'login',
+    onSubmitSuccess: resetLoginFormRedux,
+})(LoginForm)

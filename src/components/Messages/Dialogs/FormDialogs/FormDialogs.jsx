@@ -1,30 +1,26 @@
 import React from 'react'
 import './FormDialogs.css'
+import { reset, Field ,reduxForm } from 'redux-form'
 
-const FormDialogs = (props) => {
+const resetFormDialogs = (result, dispatch) => dispatch(reset('dialogs'))
 
-    const changeFormMessage = (e) => {
-        props.changeMessage(e.target.value)
-    }
+const Form = (props) => {
 
-    const sendFormMessage = () => {
-        props.sendMessage()
-    }
+    const { handleSubmit } = props
 
     return (
-        <div className="form-dialogs">
-            <textarea
+        <form onSubmit={handleSubmit} className="form-dialogs">
+            <Field
+                name="dialog"
+                component="textarea"
                 className="form-dialogs__textarea"
-                onChange={changeFormMessage}
-                value={props.value}
             />
-            <button
-                type="button"
-                className="form-dialogs__button"
-                onClick={sendFormMessage}
-            >  Send </button>
-        </div>
+            <button className="form-dialogs__button"> Send </button>
+        </form>
     )
 }
 
-export default FormDialogs
+export const FormDialogs = reduxForm({
+    form: 'dialogs',
+    onSubmitSuccess: resetFormDialogs,
+})(Form)

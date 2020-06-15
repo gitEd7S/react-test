@@ -1,9 +1,14 @@
 import React from 'react'
 import Dialog from './Dialog/Dialog'
-import FormDialogs from './FormDialogs/FormDialogs'
+import { FormDialogs } from './FormDialogs/FormDialogs'
 import './Dialogs.css'
 
 const Dialogs = (props) => {
+
+    const sendFormMessage = (values) => {
+        props.sendMessage(values.dialog)
+    }
+
     const tplDialogs = props.dialogs.map((post) => {
         return (
             <Dialog
@@ -18,11 +23,7 @@ const Dialogs = (props) => {
     return(
         <div className="dialogs">
             <div className="dialogs__wrapper"> { tplDialogs } </div>
-            <FormDialogs
-                value={props.messageTextTextarea}
-                sendMessage={props.sendMessage}
-                changeMessage={props.changeMessage}
-            />
+            <FormDialogs onSubmit={sendFormMessage} />
         </div>
     )
 }

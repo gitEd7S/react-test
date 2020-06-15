@@ -14,7 +14,6 @@ const Messages = (props) => {
                 dialogs={props.state.dialogs}
                 messageTextTextarea={props.state.messageTextTextarea}
                 sendMessage={props.sendMessage}
-                changeMessage={props.changeMessage}
             />
         </div>
     )

@@ -1,0 +1,60 @@
+.login {
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.login__title {
+    text-align: center;
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login__input {
+    width: 100%;
+    height: 40px;
+    outline: none;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    padding: 0 15px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.login__group {
+    margin-bottom: 30px;
+    user-select: none;
+}
+
+.login__group,
+.login__ckeck,
+.login__text {
+    cursor: pointer;
+}
+
+.login__ckeck {
+    margin: 0;
+}
+
+.login__text {
+    display: inline-block;
+    padding-left: 10px;
+}
+
+.login__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    width: fit-content;
+    height: 40px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #377078;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}

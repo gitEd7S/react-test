@@ -1,0 +1,9 @@
+span.error {
+    display: block;
+    color: red;
+    margin-top: 5px;
+}
+
+textarea.error {
+    border-color: red;
+}

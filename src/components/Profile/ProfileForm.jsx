@@ -1,5 +1,9 @@
 import React from 'react'
 import { Form, reset, Field, reduxForm } from 'redux-form'
+import { Textarea } from '../common/FormsControls/FormsControls'
+import { required, maxLength } from '../../utils/validators/validators'
+
+const max = maxLength(10)
 
 const resetProfileForm = (result, dispatch) => dispatch(reset('post'))
 
@@ -11,7 +15,8 @@ const ProfileFormRedux = (props) => {
         <Form onSubmit={handleSubmit} className="create-post__form">
             <Field
                 name="post"
-                component="textarea"
+                component={Textarea}
+                validate={[required, max]}
                 className="create-post__textarea"
                 placeholder="Create new post"
             />

@@ -38,6 +38,6 @@ textarea::placeholder {
 }
 
 ::-webkit-scrollbar { width: 5px; height: 5px; }
-::-webkit-scrollbar-thumb { background-color: #c1c1c1; border-radius: 3px;}
+::-webkit-scrollbar-thumb { background-color: var(--color-view-header); border-radius: 3px;}
 ::-webkit-scrollbar-button { height: 0; }
 ::-webkit-scrollbar-track-piece { background-color: #ffffff;}

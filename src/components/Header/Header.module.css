@@ -25,3 +25,12 @@
     font-size: 16px;
     font-weight: 600;
 }
+
+.headerLogout {
+    margin-left: 40px;
+    cursor: pointer;
+}
+
+.login span.headerName {
+    color: #0e3a42;
+}

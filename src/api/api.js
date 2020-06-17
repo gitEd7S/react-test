@@ -31,7 +31,6 @@ export const API = {
         return instance.put(`profile/status`, { status }).then(responce => responce.data)
     },
     login (email, password, remember = false) {
-        debugger
         return instance.post(`auth/login`, { email, password, remember }).then(responce => responce.data)
     },
     logout () {

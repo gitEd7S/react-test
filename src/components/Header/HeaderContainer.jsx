@@ -2,7 +2,7 @@ import React from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import Header from './Header'
-import { getAuthThunkCreator } from '../../redux/auth/actions'
+import { getAuthThunkCreator, logout } from '../../redux/auth/actions'
 
 class HeaderContainer extends React.Component {
     componentDidMount() {
@@ -22,6 +22,7 @@ const mapStateToProps = (state) => {
 
 export default compose(
     connect(mapStateToProps, {
-        getAuthThunkCreator
+        getAuthThunkCreator,
+        logout
     })
 )(HeaderContainer)

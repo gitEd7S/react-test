@@ -1,5 +1,5 @@
 import * as types from './types'
-import { API } from "../../api/api";
+import { API } from "../../api/api"
 
 export const setUserData = (data, isAuth) => ({ type: types.SET_USER_DATA, payload: { data, isAuth } })
 
@@ -12,7 +12,7 @@ export const getAuthThunkCreator = () => (dispatch) => {
 export const login = (email, password, remember) => (dispatch) => {
     API.login(email, password, remember).then(response => {
         if(response.resultCode === 0) {
-            dispatch(setUserData())
+            dispatch(getAuthThunkCreator())
         }
     })
 }

@@ -28,6 +28,13 @@ export const API = {
         return instance.get(`profile/status/${id}`).then(responce => responce.data)
     },
     updateStatus (status) {
-        return instance.put(`profile/status`, {status}).then(responce => responce.data)
-    }
+        return instance.put(`profile/status`, { status }).then(responce => responce.data)
+    },
+    login (email, password, remember = false) {
+        debugger
+        return instance.post(`auth/login`, { email, password, remember }).then(responce => responce.data)
+    },
+    logout () {
+        return instance.delete(`auth/login`).then(responce => responce.data)
+    },
 }

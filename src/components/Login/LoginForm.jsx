@@ -8,7 +8,7 @@ const resetLoginFormRedux = (result, dispatch) => dispatch(reset('login'))
 const LoginForm = (props) => {
 
     const { handleSubmit } = props
-    const maxLogin = maxLength(5)
+    const maxLogin = maxLength(50)
 
     return (
         <form onSubmit={handleSubmit} className="login__form">

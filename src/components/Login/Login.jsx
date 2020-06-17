@@ -1,11 +1,14 @@
 import React from 'react'
-import './Login.css'
+import { connect } from 'react-redux'
 import { LoginFormRedux } from './LoginForm'
+import { login } from '../../redux/auth/actions'
+import './Login.css'
 
 const Login = (props) => {
 
     const onSubmit = (formData) => {
-        console.log(formData)
+        console.log('Success')
+        props.login(formData.login, formData.password, formData.remember)
     }
 
     return (
@@ -16,4 +19,4 @@ const Login = (props) => {
     )
 }
 
-export default Login
+export default connect(null, { login })(Login)

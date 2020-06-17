@@ -1,8 +1,8 @@
 import React from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
-import { getAuthThunkCreator } from '../../redux/auth/reducer'
 import Header from './Header'
+import { getAuthThunkCreator } from '../../redux/auth/actions'
 
 class HeaderContainer extends React.Component {
     componentDidMount() {

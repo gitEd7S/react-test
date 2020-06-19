@@ -15,10 +15,10 @@ const LoginForm = (props) => {
             <div className="login__row">
                 <Field
                     type="text"
-                    name="login"
+                    name="email"
                     component={Input}
                     className="login__input"
-                    placeholder="Login"
+                    placeholder="email"
                     validate={[required, maxLogin]}
                 />
             </div>
@@ -49,5 +49,5 @@ const LoginForm = (props) => {
 
 export const LoginFormRedux = reduxForm({
     form: 'login',
-    onSubmitSuccess: resetLoginFormRedux,
+    // onSubmitSuccess: resetLoginFormRedux,
 })(LoginForm)

@@ -1,3 +1,4 @@
+import { stopSubmit } from 'redux-form'
 import * as types from './types'
 import { API } from "../../api/api"
 
@@ -10,9 +11,12 @@ export const getAuthThunkCreator = () => (dispatch) => {
 }
 
 export const login = (email, password, remember) => (dispatch) => {
+
     API.login(email, password, remember).then(response => {
         if(response.resultCode === 0) {
             dispatch(getAuthThunkCreator())
+        } else {
+            dispatch(stopSubmit('login', { email: response.messages.length > 0 ? response.messages : 'Some error' }))
         }
     })
 }

@@ -7,8 +7,8 @@ import './Login.css'
 const Login = (props) => {
 
     const onSubmit = (formData) => {
-        console.log('Success')
         props.login(formData.login, formData.password, formData.remember)
+        console.log('Success')
     }
 
     return (

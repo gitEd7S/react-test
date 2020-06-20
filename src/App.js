@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Profiler } from 'react'
 import { Route } from 'react-router-dom'
 
 import HeaderContainer from './components/Header/HeaderContainer'
@@ -13,9 +13,22 @@ import Settings from './components/Settings/Settings'
 import Login from './components/Login/Login'
 
 const App = (props) => {
+
+    const onRenderCallback = (id, phase, actualDuration, baseDuration, startTime, commitTime, interactions) => {
+        console.log('id = ' + id)
+        console.log('phase = ' + phase)
+        console.log('actualDuration = ' + actualDuration)
+        console.log('baseDuration = ' + baseDuration)
+        console.log('startTime = ' + startTime)
+        console.log('commitTime = ' + commitTime)
+        console.log('interactions = ', interactions)
+    }
+
     return (
         <div className="wrapper">
-            <HeaderContainer />
+            <Profiler id="HeaderContainer" onRender={onRenderCallback}>
+                <HeaderContainer />
+            </Profiler>
             <Navbar />
             <div className="main">
                 <Route

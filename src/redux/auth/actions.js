@@ -11,7 +11,6 @@ export const getAuthThunkCreator = () => (dispatch) => {
 }
 
 export const login = (email, password, remember) => (dispatch) => {
-
     API.login(email, password, remember).then(response => {
         if(response.resultCode === 0) {
             dispatch(getAuthThunkCreator())

@@ -1,5 +1,7 @@
 import React, { Profiler } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { compose } from 'redux'
 
 import HeaderContainer from './components/Header/HeaderContainer'
 import ProfileContainer from './components/Profile/ProfileContainer'
@@ -11,10 +13,15 @@ import News from './components/News/News'
 import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
 import Login from './components/Login/Login'
+import { getAuthThunkCreator } from './redux/auth/actions'
 
-const App = (props) => {
+class App extends React.Component {
 
-    const onRenderCallback = (id, phase, actualDuration, baseDuration, startTime, commitTime, interactions) => {
+    componentDidMount() {
+        this.props.getAuthThunkCreator()
+    }
+
+    onRenderCallback (id, phase, actualDuration, baseDuration, startTime, commitTime, interactions) {
         console.log('id = ' + id)
         console.log('phase = ' + phase)
         console.log('actualDuration = ' + actualDuration)
@@ -24,36 +31,28 @@ const App = (props) => {
         console.log('interactions = ', interactions)
     }
 
-    return (
-        <div className="wrapper">
-            <Profiler id="HeaderContainer" onRender={onRenderCallback}>
-                <HeaderContainer />
-            </Profiler>
-            <Navbar />
-            <div className="main">
-                <Route
-                    path="/profile/:id?"
-                    render={ () => <ProfileContainer /> }
-                />
-                <Route
-                    path="/messages"
-                    render={ () => <MessagesContainer /> }
-                />
-                <Route
-                    path="/users"
-                    render={ () => <UsersContainer /> }
-                />
-                <Route exact path="/news" component={News} />
-                <Route exact path="/music" component={Music} />
-                <Route exact path="/settings" component={Settings} />
-                <Route
-                    exact
-                    path="/login"
-                    component={Login}
-                />
+    render () {
+        return (
+            <div className="wrapper">
+                <Profiler id="HeaderContainer" onRender={this.onRenderCallback}>
+                    <HeaderContainer />
+                </Profiler>
+                <Navbar />
+                <div className="main">
+                    <Route path="/profile/:id?" render={ () => <ProfileContainer /> } />
+                    <Route path="/messages" render={ () => <MessagesContainer /> } />
+                    <Route path="/users" render={ () => <UsersContainer /> } />
+                    <Route exact path="/news" component={News} />
+                    <Route exact path="/music" component={Music} />
+                    <Route exact path="/settings" component={Settings} />
+                    <Route exact path="/login" component={Login} />
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
-export default App
+export default compose(
+    withRouter,
+    connect(null, { getAuthThunkCreator })
+)(App)

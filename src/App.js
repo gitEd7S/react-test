@@ -13,12 +13,13 @@ import News from './components/News/News'
 import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings'
 import Login from './components/Login/Login'
-import { getAuthThunkCreator } from './redux/auth/actions'
+import Preloader from './components/common/Preloader/Preloader'
+import { initializedApp } from './redux/app/actions'
 
 class App extends React.Component {
 
-    componentDidMount() {
-        this.props.getAuthThunkCreator()
+    componentDidMount () {
+        this.props.initializedApp()
     }
 
     onRenderCallback (id, phase, actualDuration, baseDuration, startTime, commitTime, interactions) {
@@ -32,6 +33,7 @@ class App extends React.Component {
     }
 
     render () {
+        if(!this.props.initialized) { return <Preloader /> }
         return (
             <div className="wrapper">
                 <Profiler id="HeaderContainer" onRender={this.onRenderCallback}>
@@ -52,7 +54,11 @@ class App extends React.Component {
     }
 }
 
+const mapStateToProps = (state) => ({
+    initialized: state.app.initialized,
+})
+
 export default compose(
     withRouter,
-    connect(null, { getAuthThunkCreator })
+    connect(mapStateToProps, { initializedApp })
 )(App)

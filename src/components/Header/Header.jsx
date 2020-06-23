@@ -17,7 +17,6 @@ const Header = (props) => {
                     :  <NavLink to='/login'>Login</NavLink>
                 }
                 { props.isAuth && <span onClick={onLogout} className={classes.headerLogout}>Logout</span> }
-                { props.isAuth && <Redirect to="/profile" /> }
             </div>
         </header>
     )

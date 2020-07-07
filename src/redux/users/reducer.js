@@ -1,12 +1,4 @@
-import { API } from "../../api/api";
-
-const FOLLOW_ACTION = 'FOLLOW-ACTION-TYPE';
-const UNFOLLOW_ACTION = 'UNFOLLOW-ACTION-TYPE';
-const SET_USERS_ACTION = 'SET-USERS-ACTION';
-const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
-const SET_TOTAL_COUNT = 'SET-TOTAL-COUNT';
-const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING';
-const TOGGLE_IS_FOLLOWING_IN_PROGRESS = 'TOGGLE-IS-FOLLOWING-IN-PROGRESS';
+import * as types from './types'
 
 const initialState = {
     users: [],
@@ -19,7 +11,7 @@ const initialState = {
 
 const usersReducer = (state = initialState, action) => {
     switch(action.type) {
-        case FOLLOW_ACTION:
+        case types.FOLLOW_ACTION:
             return {
                 ...state,
                 users: state.users.map(user => {
@@ -29,7 +21,7 @@ const usersReducer = (state = initialState, action) => {
                     return user;
                 })
             }
-        case UNFOLLOW_ACTION:
+        case types.UNFOLLOW_ACTION:
             return {
                 ...state,
                 users: state.users.map(user => {
@@ -39,27 +31,27 @@ const usersReducer = (state = initialState, action) => {
                     return user;
                 })
             }
-        case SET_USERS_ACTION:
+        case types.SET_USERS_ACTION:
             return {
                 ...state,
                 users: [...action.users]
             }
-        case SET_CURRENT_PAGE:
+        case types.SET_CURRENT_PAGE:
             return {
                 ...state,
                 currentPage: action.page,
             }
-        case SET_TOTAL_COUNT:
+        case types.SET_TOTAL_COUNT:
             return {
                 ...state,
                 totalUsersCount: action.total,
             }
-        case TOGGLE_IS_FETCHING:
+        case types.TOGGLE_IS_FETCHING:
             return {
                 ...state,
                 isFetching: action.fetching,
             }
-        case TOGGLE_IS_FOLLOWING_IN_PROGRESS:
+        case types.TOGGLE_IS_FOLLOWING_IN_PROGRESS:
             return {
                 ...state,
                 isFollowingInProgress: action.audit
@@ -68,60 +60,6 @@ const usersReducer = (state = initialState, action) => {
             }
         default:
             return state
-    }
-}
-
-export const follow = (userId) => ({ type: FOLLOW_ACTION, userId })
-export const unfollow = (userId) => ({ type: UNFOLLOW_ACTION, userId })
-export const setUsers = (users) => ({ type: SET_USERS_ACTION, users })
-export const setCurrentPage = (page) => ({ type: SET_CURRENT_PAGE, page })
-export const totalUsersCountReady = (total) => ({ type: SET_TOTAL_COUNT, total })
-export const toggleIsFetching = (fetching) => ({ type: TOGGLE_IS_FETCHING, fetching })
-export const toggleIsFollowingInProgress = (audit, id) => ({ type: TOGGLE_IS_FOLLOWING_IN_PROGRESS, audit, id })
-
-export const getUserThunkCreator = (currentPage, pageSize) => {
-    return (dispatch) => {
-        dispatch(toggleIsFetching(true));
-        API.getUsers(currentPage, pageSize).then(data => {
-            dispatch(setUsers(data.items));
-            dispatch(totalUsersCountReady(data.totalCount));
-            dispatch(toggleIsFetching(false));
-        })
-    }
-}
-
-export const getUserChangedThunkCreator = (page, pageSize) => {
-    return (dispatch) => {
-        dispatch(toggleIsFetching(true));
-        API.getUsers(page, pageSize).then(data => {
-            dispatch(setCurrentPage(page));
-            dispatch(setUsers(data.items));
-            dispatch(toggleIsFetching(false));
-        })
-    }
-}
-
-export const followThunkCreator = ($id) => {
-    return (dispatch) => {
-        dispatch(toggleIsFollowingInProgress(true, $id))
-        API.postFollow($id).then(data => {
-            if(data.resultCode === 0) {
-                dispatch(follow($id));
-                dispatch(toggleIsFollowingInProgress(false, $id));
-            }
-        })
-    }
-}
-
-export const unfollowThunkCreator = ($id) => {
-    return (dispatch) => {
-        dispatch(toggleIsFollowingInProgress(true, $id))
-        API.postUnfollow($id).then(data => {
-            if(data.resultCode === 0) {
-                dispatch(unfollow($id));
-                dispatch(toggleIsFollowingInProgress(false, $id));
-            }
-        })
     }
 }
 

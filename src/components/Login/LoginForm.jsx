@@ -49,5 +49,5 @@ const LoginForm = (props) => {
 
 export const LoginFormRedux = reduxForm({
     form: 'login',
-    // onSubmitSuccess: resetLoginFormRedux,
+    onSubmitSuccess: resetLoginFormRedux,
 })(LoginForm)

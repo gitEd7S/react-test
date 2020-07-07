@@ -6,7 +6,15 @@ import {
     getUserChangedThunkCreator,
     followThunkCreator,
     unfollowThunkCreator,
-} from '../../redux/users/reducer'
+} from '../../redux/users/actions'
+import {
+    getUsers,
+    getPageSize,
+    getTotalUsersCount,
+    getCurrentPage,
+    getIsFetching,
+    getIsFollowingInProgress,
+} from '../../redux/users/selectors'
 import Preloader from '../common/Preloader/Preloader'
 
 class UserContainer extends React.Component {
@@ -39,14 +47,25 @@ class UserContainer extends React.Component {
     }
 }
 
+// const mapStateToProps = (state) => {
+//     return {
+//         users: state.usersReducer.users,
+//         pageSize: state.usersReducer.pageSize,
+//         totalUsersCount: state.usersReducer.totalUsersCount,
+//         currentPage: state.usersReducer.currentPage,
+//         isFetching: state.usersReducer.isFetching,
+//         isFollowingInProgress: state.usersReducer.isFollowingInProgress,
+//     }
+// }
+
 const mapStateToProps = (state) => {
     return {
-        users: state.usersReducer.users,
-        pageSize: state.usersReducer.pageSize,
-        totalUsersCount: state.usersReducer.totalUsersCount,
-        currentPage: state.usersReducer.currentPage,
-        isFetching: state.usersReducer.isFetching,
-        isFollowingInProgress: state.usersReducer.isFollowingInProgress,
+        users: getUsers(state),
+        pageSize: getPageSize(state),
+        totalUsersCount: getTotalUsersCount(state),
+        currentPage: getCurrentPage(state),
+        isFetching: getIsFetching(state),
+        isFollowingInProgress: getIsFollowingInProgress(state),
     }
 }
 

@@ -8,7 +8,7 @@ import {
     unfollowThunkCreator,
 } from '../../redux/users/actions'
 import {
-    getUsers,
+    getUsersSelector,
     getPageSize,
     getTotalUsersCount,
     getCurrentPage,
@@ -47,20 +47,9 @@ class UserContainer extends React.Component {
     }
 }
 
-// const mapStateToProps = (state) => {
-//     return {
-//         users: state.usersReducer.users,
-//         pageSize: state.usersReducer.pageSize,
-//         totalUsersCount: state.usersReducer.totalUsersCount,
-//         currentPage: state.usersReducer.currentPage,
-//         isFetching: state.usersReducer.isFetching,
-//         isFollowingInProgress: state.usersReducer.isFollowingInProgress,
-//     }
-// }
-
 const mapStateToProps = (state) => {
     return {
-        users: getUsers(state),
+        users: getUsersSelector(state),
         pageSize: getPageSize(state),
         totalUsersCount: getTotalUsersCount(state),
         currentPage: getCurrentPage(state),

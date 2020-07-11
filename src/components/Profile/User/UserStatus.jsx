@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './User.css'
 
 const UserStatus = (props) => {
 
     const [status, setStatus] = useState(props.status)
     const [editMode, setEditMode] = useState(false)
+
+    useEffect(() => {
+        setStatus(props.status)
+    }, [props.status])
 
     const useEditDisactivated = () => {
         setEditMode(false)

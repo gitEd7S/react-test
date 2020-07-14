@@ -1,7 +1,7 @@
 import React from 'react'
 import './Banner.css'
 
-const Banner = () => {
+const Banner = React.memo(() => {
     return(
         <div className="main__banner banner">
             <picture className="banner__picture">
@@ -9,6 +9,6 @@ const Banner = () => {
             </picture>
         </div>
     )
-}
+})
 
 export default Banner

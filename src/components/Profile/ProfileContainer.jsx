@@ -7,7 +7,7 @@ import {
     getUserTunkCreator,
     getStatusTunkCreator,
     updateStatusTunkCreator,
-} from '../../redux/profile/reducer'
+} from '@/redux/profile/reducer'
 import Profile from './Profile'
 
 class ProfileContainer extends React.Component {

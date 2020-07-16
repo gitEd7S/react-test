@@ -1,6 +1,6 @@
 import React from 'react'
 import Preloader from '../../common/Preloader/Preloader'
-import userPicture from '../../../assets/images/user.jpg'
+import userPicture from '@/assets/images/user.jpg'
 import UserStatus from './UserStatus'
 import './User.css'
 

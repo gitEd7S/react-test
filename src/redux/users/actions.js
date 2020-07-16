@@ -1,5 +1,5 @@
 import * as types from './types'
-import { API } from "../../api/api";
+import { API } from "@/api/api";
 
 export const follow = (userId) => ({ type: types.FOLLOW_ACTION, userId })
 export const unfollow = (userId) => ({ type: types.UNFOLLOW_ACTION, userId })
